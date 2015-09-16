@@ -7,7 +7,7 @@ Monte Carlo Tic-Tac-Toe Player
 """
 
 import random
-import poc_ttt_gui
+#import poc_ttt_gui
 import poc_ttt_provided as provided
 
 # Constants for Monte Carlo simulator
@@ -15,7 +15,7 @@ import poc_ttt_provided as provided
 #  do not change their names.
 NTRIALS = 100      # Number of trials to run
 SCORE_CURRENT = 1.5 # Score for squares played by the current player
-SCORE_OTHER = 1.75   # Score for squares played by the other player
+SCORE_OTHER = 1.0   # Score for squares played by the other player
     
 def mc_trial(board, player):
     """
@@ -44,12 +44,10 @@ def mc_update_scores(scores, board, player):
     """
     Updates global scores from an iteration of a Monte Carlo trial.
     """
-    #print scores
+    
     winner = board.check_win()
     opp_player = provided.switch_player(player)
-    #print player
-    #print opp_player
-    
+        
     if winner == player:
         for r_idx in range(board.get_dim()):
             for c_idx in range(board.get_dim()):
